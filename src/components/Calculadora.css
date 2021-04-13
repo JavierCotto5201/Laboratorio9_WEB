@@ -1,0 +1,16 @@
+#Calculadora{
+   background-color: #182b3a;
+   background-image: linear-gradient(315deg, #182b3a 0%, #20a4f3 74%);
+   width: 500px;
+   height: 600px;
+   margin: 60px;
+}
+
+textarea{
+   width:99%;
+   height:120px;
+   resize: none;
+   font-size: 54px;
+   font-family:sans-serif;
+   text-align: right;
+}
