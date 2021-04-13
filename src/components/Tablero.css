@@ -1,0 +1,9 @@
+#Tablero{
+    display: flex;
+    flex-wrap: wrap;
+    width: 99%;
+    height: 98%;
+    position:absolute;
+    justify-content: space-around;
+    background-color: #1a1b1b;
+}
