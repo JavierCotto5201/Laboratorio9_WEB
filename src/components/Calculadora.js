@@ -14,7 +14,6 @@ export default class Calculadora extends React.Component {
         result: "",
         signo:"",
         valor:"",
-        result2:""
     }
   }
 
@@ -27,7 +26,7 @@ export default class Calculadora extends React.Component {
   }
 
   equalSign = (childData) =>{
-    this.setState({result:math.evaluate(this.state.valor + this.state.signo + " " + this.state.result)});
+    this.setState({result:math.evaluate(this.state.valor + this.state.signo + " " + this.state.result).toString().substring(0,8)});
   }
 
   clearBoton = (childData) =>{
@@ -35,7 +34,7 @@ export default class Calculadora extends React.Component {
   }
 
   MasMenosSign = (childData) =>{
-    this.setState({result:math.evaluate("-1 * " + this.state.result)});
+    this.setState({result:math.evaluate("-1 * " + this.state.result).toString().substring(0,8)});
   }
 
   render() {
