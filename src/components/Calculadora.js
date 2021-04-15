@@ -27,6 +27,9 @@ export default class Calculadora extends React.Component {
 
   equalSign = (childData) =>{
     this.setState({result:math.evaluate(this.state.valor + this.state.signo + " " + this.state.result).toString().substring(0,8)});
+    if(this.state.result >= 999999999){
+      this.setState({result:"ERROR"});
+    }
   }
 
   clearBoton = (childData) =>{

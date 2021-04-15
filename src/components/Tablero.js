@@ -9,5 +9,5 @@ export default class Tablero extends React.Component {
           <Calculadora></Calculadora>
         </div>     
     );
-  };
-};
+  }
+}
