@@ -1,5 +1,4 @@
 import React from "react";
-import "./Calculadora.css";
 import Botones from "./Botones";
 import * as math from "mathjs";
 
@@ -43,7 +42,7 @@ export default class Calculadora extends React.Component {
   render() {
     return (
         <div id="Calculadora">
-            <textarea className = "input" maxLength="9" value={this.state.result}></textarea>
+            <textarea data-testid="texto" className = "input" maxLength="9" value={this.state.result} readOnly></textarea>
             <Botones añadirV = {this.callbackFunction} signo = {this.callbackFunction2} igual = {this.equalSign} limpiar = {this.clearBoton} Mm = {this.MasMenosSign}></Botones>
         </div>     
     );

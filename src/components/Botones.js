@@ -1,5 +1,4 @@
 import React from "react";
-import "./Botones.css";
 
 export default class Botones extends React.Component {
 
