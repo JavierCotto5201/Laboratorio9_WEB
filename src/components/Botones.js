@@ -26,7 +26,7 @@ export default class Botones extends React.Component {
     return (
         <div id="Botones">
             <div className="row">
-                <button onClick = {() => this.clear("C")}>C</button>
+                <button data-testid='clear' onClick = {() => this.clear("C")}>C</button>
                 <button onClick = {() => this.MasMenos("+/-")}>+/-</button>
                 <button onClick = {() => this.sendSign("%")}>%</button>
                 <button onClick = {() => this.sendSign("/")}>/</button>
@@ -44,15 +44,15 @@ export default class Botones extends React.Component {
                 <button onClick = {() => this.sendSign("-")}>-</button>
             </div>
             <div className="row">
-                <button onClick = {() => this.sendData("1")}>1</button>
+                <button data-testid="uno" onClick = {() => this.sendData("1")}>1</button>
                 <button onClick = {() => this.sendData("2")}>2</button>
                 <button onClick = {() => this.sendData("3")}>3</button>
-                <button onClick = {() => this.sendSign("+")}>+</button>
+                <button data-testid="suma" onClick = {() => this.sendSign("+")}>+</button>
             </div>  
             <div className="row">
                 <button onClick = {() => this.sendData("0")}>0</button>
                 <button onClick = {() => this.sendData(".")}>.</button>
-                <button onClick = {() => this.equal("=")}>=</button>
+                <button data-testid="igual" onClick = {() => this.equal("=")}>=</button>
             </div>
         </div>     
     );

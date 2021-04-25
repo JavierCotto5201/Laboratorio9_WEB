@@ -1,6 +1,7 @@
 import React from "react";
-import { screen, render, fireEvent, cleanup } from "@testing-library/react";
+import { screen, render, fireEvent, cleanup, queryByTestId } from "@testing-library/react";
 import Calculadora from "./Calculadora";
+import Botones from "./Botones";
 
 describe ("Calculadora", () =>{
     it("Validar Botones", () =>{
@@ -27,7 +28,31 @@ describe ("Calculadora", () =>{
             expect(screen.queryByText("=")).toBeInTheDocument();
     });
 
-    it("Validar boton de clear",()=>{
+    it("Testear boton CLEAR",()=>{
+        const mockFunction = jest.fn();
+        render(<textarea value = {"1"} readOnly/>);
+        render(<Botones limpiar = {mockFunction}/>);
+        fireEvent.click(screen.getByTestId("clear"));
+        expect(mockFunction.mock.calls.length).toEqual(1);
+        expect(screen.queryByTestId("texto")).toBeNull();
+    });
+
+    it("Testear boton 1",()=>{
+        const mockFunction = jest.fn();
+        render(<textarea value = {""} readOnly/>);
+        render(<Botones añadirV = {mockFunction}/>);
+        fireEvent.click(screen.getByTestId("uno"));
+        expect(<textarea value={"1"}></textarea>)
+    });
+
+    fit("Testear boton de suma",()=>{
+        const mockFunction = jest.fn();
+        const num1 = 1;
+        render(<textarea value = {3} readOnly/>);
+        render(<Botones añadirV = {num1} signo = {mockFunction} igual = {mockFunction}/>);
+        fireEvent.click(screen.getByTestId("suma"));
+        fireEvent.click(screen.getByTestId("igual"));
+        expect(<textarea value={4}></textarea>)
         
     });
 });
