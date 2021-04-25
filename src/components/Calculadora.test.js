@@ -42,10 +42,10 @@ describe ("Calculadora", () =>{
         render(<textarea value = {""} readOnly/>);
         render(<Botones añadirV = {mockFunction}/>);
         fireEvent.click(screen.getByTestId("uno"));
-        expect(<textarea value={"1"}></textarea>)
+        expect(<textarea value={1}></textarea>)
     });
 
-    fit("Testear boton de suma",()=>{
+    it("Testear boton de suma",()=>{
         const mockFunction = jest.fn();
         const num1 = 1;
         render(<textarea value = {3} readOnly/>);
@@ -54,5 +54,35 @@ describe ("Calculadora", () =>{
         fireEvent.click(screen.getByTestId("igual"));
         expect(<textarea value={4}></textarea>)
         
+    });
+
+    it("Testear boton de resta",()=>{
+        const mockFunction = jest.fn();
+        const num1 = 1;
+        render(<textarea value = {3} readOnly/>);
+        render(<Botones añadirV = {num1} signo = {mockFunction} igual = {mockFunction}/>);
+        fireEvent.click(screen.getByTestId("resta"));
+        fireEvent.click(screen.getByTestId("igual"));
+        expect(<textarea value={2}></textarea>)   
+    });
+
+    it("Testear boton de multiplicar",()=>{
+        const mockFunction = jest.fn();
+        const num1 = 1;
+        render(<textarea value = {3} readOnly/>);
+        render(<Botones añadirV = {num1} signo = {mockFunction} igual = {mockFunction}/>);
+        fireEvent.click(screen.getByTestId("multi"));
+        fireEvent.click(screen.getByTestId("igual"));
+        expect(<textarea value={3}></textarea>)   
+    });
+
+    it("Testear boton de division",()=>{
+        const mockFunction = jest.fn();
+        const num1 = 1;
+        render(<textarea value = {3} readOnly/>);
+        render(<Botones añadirV = {num1} signo = {mockFunction} igual = {mockFunction}/>);
+        fireEvent.click(screen.getByTestId("divi"));
+        fireEvent.click(screen.getByTestId("igual"));
+        expect(<textarea value={3}></textarea>)   
     });
 });
